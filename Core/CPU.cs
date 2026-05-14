@@ -46,6 +46,16 @@ public sealed class CPU(IMemoryBus memory)
 
         return (true, "ok");
     }
+
+    public void LoadProgram(ushort cs, byte[] program)
+    {
+        const ushort loadOffset = 0x0100;
+        for (var i = 0; i < program.Length; i++)
+        {
+            ushort offset = (ushort)(loadOffset + 1);
+            this.Memory.WriteByte(cs, offset, program[i]);
+        }
+    }
 }
 
 public interface IMemoryBus
