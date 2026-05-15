@@ -12,6 +12,9 @@ public sealed class CPU(IMemoryBus memory)
     // Instruction Pointer
     public ushort IP;
 
+    // Status Register
+    public ushort FLAGS;
+
     // Memory interface
     public IMemoryBus Memory { get; } = memory;
 
